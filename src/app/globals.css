@@ -1,26 +1,220 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   DARKLAB GAMES — design tokens
+   Palette sampled directly from the studio logo: the teal of the
+   flask outline, the magenta of the shield, the slate it sits on.
+   ============================================================ */
+@theme {
+  --color-ink:      #06090a;   /* the ground */
+  --color-carbon:   #0d1316;   /* raised panel */
+  --color-graphite: #141c20;   /* panel, hover */
+  --color-slate:    #1e292e;   /* hairlines, borders */
+  --color-ash:      #778b93;   /* dim furniture — kept above 4.5:1 on ink */
+  --color-mist:     #93a6ad;   /* body text */
+  --color-bone:     #e8f0f2;   /* headings */
+
+  --color-specimen: #2de0ce;   /* primary accent — the flask */
+  --color-reagent:  #e631fb;   /* reserved: live / rec / danger */
+  --color-culture:  #56f0a8;   /* gradient stop only */
+  --color-violet:   #8b5cf6;   /* gradient stop only */
+
+  --font-display: var(--font-big-shoulders), "Avenir Next Condensed", sans-serif;
+  --font-body:    var(--font-archivo), system-ui, sans-serif;
+  --font-hud:     var(--font-dm-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ------------------------------------------------------------ base */
+* { border-color: var(--color-slate); }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-mist);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* A very fine film grain over the whole page. The studio shoots its
+   horror through a camcorder; the site carries the same sensor noise. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 640ms steps(3) infinite;
+}
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  33%  { transform: translate(-2%, 1%); }
+  66%  { transform: translate(1%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+
+::selection { background: var(--color-specimen); color: var(--color-ink); }
+
+:focus-visible {
+  outline: 2px solid var(--color-specimen);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ------------------------------------------------------------ type */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.86;
+  letter-spacing: 0.005em;
+  color: var(--color-bone);
+  text-wrap: balance;
+}
+
+/* HUD labels: the instrument furniture of the site */
+.hud {
+  font-family: var(--font-hud);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ash);
+}
+
+.rule-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--color-culture),
+    var(--color-specimen) 34%,
+    var(--color-violet) 72%,
+    var(--color-reagent)
+  );
+}
+
+/* ------------------------------------------------------------ signature: the viewfinder
+   Three of DarkLab's four games are about watching or being watched.
+   The site frames its own content the way those games frame the player. */
+.viewfinder { position: relative; }
+.viewfinder::before,
+.viewfinder::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  border-color: var(--color-specimen);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out-expo), inset 0.4s var(--ease-out-expo);
+}
+.viewfinder::before { top: 10px; left: 10px;  border-top: 1px solid; border-left: 1px solid; }
+.viewfinder::after  { bottom: 10px; right: 10px; border-bottom: 1px solid; border-right: 1px solid; }
+.viewfinder:hover::before,
+.viewfinder:hover::after,
+.viewfinder:focus-within::before,
+.viewfinder:focus-within::after { opacity: 0.85; }
+
+/* Always-on brackets, all four corners — used on the hero frame */
+.brackets > span {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-color: rgb(45 224 206 / 0.5);
+  pointer-events: none;
+}
+.brackets > span:nth-child(1) { top: 0; left: 0;     border-top: 1px solid; border-left: 1px solid; }
+.brackets > span:nth-child(2) { top: 0; right: 0;    border-top: 1px solid; border-right: 1px solid; }
+.brackets > span:nth-child(3) { bottom: 0; left: 0;  border-bottom: 1px solid; border-left: 1px solid; }
+.brackets > span:nth-child(4) { bottom: 0; right: 0; border-bottom: 1px solid; border-right: 1px solid; }
+
+/* The one place magenta is allowed: the recording indicator. */
+.rec-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-reagent);
+  box-shadow: 0 0 8px var(--color-reagent);
+  animation: rec 2s ease-in-out infinite;
+}
+@keyframes rec { 0%, 45% { opacity: 1; } 55%, 100% { opacity: 0.15; } }
+
+/* ------------------------------------------------------------ scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.85s var(--ease-out-expo), transform 0.85s var(--ease-out-expo);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 90ms; }
+.reveal-d2 { transition-delay: 180ms; }
+.reveal-d3 { transition-delay: 270ms; }
+.reveal-d4 { transition-delay: 360ms; }
+
+/* Headline wipe: text arrives from behind a moving edge */
+.wipe { overflow: hidden; display: block; }
+.wipe > span {
+  display: block;
+  transform: translateY(102%);
+  transition: transform 1s var(--ease-out-expo);
+}
+.is-in .wipe > span,
+.wipe.is-in > span { transform: none; }
+
+/* ------------------------------------------------------------ marquee */
+.marquee { display: flex; width: max-content; animation: marquee 42s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-host:hover .marquee { animation-play-state: paused; }
+
+/* ------------------------------------------------------------ scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb { background: var(--color-slate); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ash); }
+
+/* ------------------------------------------------------------ reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .wipe > span { transform: none; }
+  body::after { animation: none; }
+}
+
+/* ------------------------------------------------------------ boot / calibration sequence */
+.boot-mark, .boot-meter, .boot-label, .boot-sweep { opacity: 0; }
+.boot-stage { opacity: 1; }
+
+.boot-run .boot-sweep    { animation: bootSweep 0.85s cubic-bezier(0.7,0,0.3,1) 0.05s both; }
+.boot-run .boot-mark     { animation: bootMark  0.90s var(--ease-out-expo) 0.50s both; }
+.boot-run .boot-meter    { animation: bootFade  0.40s ease-out 0.85s both; }
+.boot-run .boot-label    { animation: bootFade  0.40s ease-out 0.95s both; }
+.boot-run .boot-fill     { animation: bootFill  1.10s cubic-bezier(0.5,0,0.2,1) 0.90s both; }
+.boot-run .boot-stage    { animation: bootOut   0.40s ease-in 1.95s both; }
+.boot-run .boot-shutter-t{ animation: bootOpenT 0.75s cubic-bezier(0.7,0,0.2,1) 2.05s both; }
+.boot-run .boot-shutter-b{ animation: bootOpenB 0.75s cubic-bezier(0.7,0,0.2,1) 2.05s both; }
+
+@keyframes bootSweep {
+  0%   { top: 0%;   opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes bootMark {
+  from { opacity: 0; transform: scale(1.14); filter: blur(9px); }
+  to   { opacity: 1; transform: scale(1);    filter: blur(0); }
+}
+@keyframes bootFade  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bootOut   { from { opacity: 1; } to { opacity: 0; } }
+@keyframes bootFill  { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes bootOpenT { from { transform: translateY(0); } to { transform: translateY(-100%); } }
+@keyframes bootOpenB { from { transform: translateY(0); } to { transform: translateY(100%); } }
