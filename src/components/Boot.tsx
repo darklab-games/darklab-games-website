@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "@/components/Img";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 
 /**

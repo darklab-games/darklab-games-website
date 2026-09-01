@@ -72,10 +72,18 @@ body::after {
 }
 
 /* ------------------------------------------------------------ type */
+/* The default is deliberately tight, but it has to stay beatable: Tailwind's
+   utilities sit in the `utilities` cascade layer, and unlayered CSS outranks
+   every layer. Declared out here, this line-height would silently win over the
+   `leading-*` class on every heading. In `components` it loses to them, which
+   is how the headings are written to work. */
+@layer components {
+  .display { line-height: 0.92; }
+}
+
 .display {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 0.86;
   letter-spacing: 0.005em;
   color: var(--color-bone);
   text-wrap: balance;

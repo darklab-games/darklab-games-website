@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Big_Shoulders, DM_Mono } from "next/font/google";
 import "./globals.css";
-import { site } from "@/lib/site";
+import { founders, site } from "@/lib/site";
 import Boot from "@/components/Boot";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -61,9 +61,16 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // suppressHydrationWarning: browser extensions such as Dark Reader stamp
+  // attributes onto <html> and <body> before React hydrates. That mismatch is
+  // outside our control and is the one legitimate use for suppressing it.
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${hud.variable}`}>
-      <body className="antialiased">
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${hud.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="antialiased" suppressHydrationWarning>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-specimen focus:px-4 focus:py-2 focus:font-hud focus:text-xs focus:uppercase focus:tracking-[0.2em] focus:text-ink"
@@ -80,7 +87,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: site.url,
               logo: `${site.url}/brand/logo-512.png`,
               email: site.email,
-              founder: { "@type": "Person", name: site.founder },
+              founder: founders.map((f) => ({
+                "@type": "Person",
+                name: f.name,
+                jobTitle: f.role,
+                sameAs: f.linkedin,
+              })),
               foundingDate: site.founded,
               sameAs: site.socials.map((s) => s.href),
             }),

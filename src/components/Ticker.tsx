@@ -1,11 +1,9 @@
-import { site } from "@/lib/site";
-
 const ITEMS = [
   "Four titles shipped",
   "Horror · Action · Arcade",
   "Play free on itch.io",
   "Windows · Browser · Android",
-  `Built by ${site.founder}`,
+  "Built by two people",
   "New builds in the lab",
 ];
 

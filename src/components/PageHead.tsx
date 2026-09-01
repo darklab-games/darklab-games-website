@@ -20,7 +20,7 @@ export default function PageHead({
           {eyebrow}
         </span>
 
-        <h1 className="display mt-7 max-w-4xl text-[15vw] uppercase leading-[0.84] sm:text-[9vw] lg:text-[7rem]">
+        <h1 className="display mt-7 max-w-4xl text-[15vw] uppercase leading-[0.92] sm:text-[9vw] lg:text-[7rem]">
           <span className="wipe"><span>{title}</span></span>
         </h1>
 

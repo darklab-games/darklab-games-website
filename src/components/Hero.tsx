@@ -75,7 +75,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="display text-[14vw] uppercase leading-[0.84] sm:text-[11vw] lg:text-[6.6rem] xl:text-[7.6rem]">
+          <h1 className="display text-[14vw] uppercase leading-[0.92] sm:text-[11vw] lg:text-[6.6rem] xl:text-[7.6rem]">
             <span className="wipe"><span>We make games</span></span>
             <span className="wipe"><span>that <em className="not-italic text-specimen">watch</em></span></span>
             <span className="wipe"><span>you back.</span></span>

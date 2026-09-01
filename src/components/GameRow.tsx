@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import type { Game } from "@/lib/games";
 import { Arrow, Chip } from "./Bits";
@@ -38,7 +38,7 @@ export default function GameRow({ game, flip }: { game: Game; flip?: boolean }) 
         </Link>
 
         <div className={`lg:col-span-5 ${flip ? "lg:order-1" : ""}`}>
-          <h3 className="display text-[11vw] uppercase leading-[0.86] sm:text-6xl lg:text-[4rem]">
+          <h3 className="display text-[11vw] uppercase leading-[0.92] sm:text-6xl lg:text-[4rem]">
             <Link href={`/games/${game.slug}`} className="transition-colors hover:text-specimen">
               {game.title}
             </Link>

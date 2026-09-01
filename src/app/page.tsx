@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import Ticker from "@/components/Ticker";
@@ -68,8 +68,8 @@ export default function Home() {
 
           <div className="grid gap-14 lg:grid-cols-12">
             <div className="reveal reveal-d1 lg:col-span-6">
-              <p className="display text-[7vw] uppercase leading-[0.94] text-bone sm:text-[2.6rem] lg:text-[3rem]">
-                DarkLab is {site.founder}, making the kind of games that keep working on you after you
+              <p className="display text-[7vw] uppercase leading-[1.16] text-bone sm:text-[2.6rem] lg:text-[3rem]">
+                DarkLab is two people, making the kind of games that keep working on you after you
                 close them.
               </p>
               <p className="mt-8 max-w-lg text-[15px] leading-relaxed text-mist">
@@ -94,7 +94,7 @@ export default function Home() {
                     <div className="flex items-baseline gap-5">
                       <span className="hud w-16 shrink-0 !text-specimen">{p.label}</span>
                       <div>
-                        <h3 className="display text-2xl uppercase leading-tight sm:text-[1.75rem]">
+                        <h3 className="display text-2xl uppercase leading-[1.12] sm:text-[1.75rem]">
                           {p.title}
                         </h3>
                         <p className="mt-3 max-w-md text-[15px] leading-relaxed text-mist">{p.body}</p>
@@ -140,8 +140,8 @@ export default function Home() {
 
         <div className="reveal mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-slate pt-8">
           <p className="max-w-md text-[15px] leading-relaxed text-mist">
-            Publishing, press or collaboration — the inbox is open and read by the person who makes the
-            games.
+            Publishing, coverage or collaboration — the inbox is open and read by the people who make
+            the games.
           </p>
           <Link
             href="/contact"

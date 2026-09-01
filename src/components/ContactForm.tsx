@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { site } from "@/lib/site";
 
-const TOPICS = ["Press or coverage", "Publishing", "Collaboration", "Bug report", "Something else"];
+const TOPICS = ["Coverage", "Publishing", "Collaboration", "Bug report", "Something else"];
 
 const field =
   "w-full border border-slate bg-carbon/50 px-4 py-3.5 text-[15px] text-bone placeholder:text-ash focus:border-specimen focus:outline-none";

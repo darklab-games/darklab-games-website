@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -34,17 +34,17 @@ export default function Header() {
           <Image
             src="/brand/logo-128.png"
             alt=""
-            width={34}
+            width={41}
             height={34}
-            className="h-[34px] w-auto transition-transform duration-500 group-hover:scale-105"
+            className="h-[34px] w-[41px] transition-transform duration-500 group-hover:scale-105"
             priority
           />
-          <span className="display hidden text-[19px] uppercase tracking-[0.16em] sm:block">
-            Dark<span className="text-specimen">Lab</span>
+          <span className="display hidden whitespace-nowrap text-[19px] uppercase tracking-[0.14em] sm:block">
+            Dark<span className="text-specimen">Lab</span> Games
           </span>
         </Link>
 
-        <nav className="ml-auto hidden items-center gap-9 md:flex">
+        <nav className="ml-auto hidden items-center gap-8 md:flex lg:gap-9">
           {nav.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (

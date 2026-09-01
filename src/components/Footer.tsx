@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import { games } from "@/lib/games";
 import { nav, site } from "@/lib/site";
@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Link href="/" className="inline-flex items-center gap-3">
-              <Image src="/brand/logo-128.png" alt="" width={42} height={42} className="h-[42px] w-auto" />
+              <Image src="/brand/logo-128.png" alt="" width={51} height={42} className="h-[42px] w-[51px]" />
               <span className="display text-2xl uppercase tracking-[0.14em]">
                 Dark<span className="text-specimen">Lab</span> Games
               </span>
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="hud mb-5">Studio</h3>
+            <h3 className="hud mb-5">Site</h3>
             <ul className="space-y-2.5">
               {nav.map((n) => (
                 <li key={n.href}>

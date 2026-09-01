@@ -21,7 +21,7 @@ export function SectionHead({
         </span>
         {right}
       </div>
-      <h2 className="display mt-6 max-w-3xl text-[13vw] uppercase leading-[0.86] sm:text-6xl lg:text-[5.2rem]">
+      <h2 className="display mt-6 max-w-3xl text-[13vw] uppercase leading-[1.02] sm:text-6xl lg:text-[5.2rem]">
         {title}
       </h2>
       {intro && <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-mist">{intro}</p>}

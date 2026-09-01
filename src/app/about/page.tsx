@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
+import Founders from "@/components/Founders";
 import { TextLink } from "@/components/Bits";
 import { games } from "@/lib/games";
-import { site } from "@/lib/site";
+import { founders, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -34,8 +35,8 @@ export default function AboutPage() {
     <>
       <PageHead
         eyebrow="The studio"
-        title="DarkLab"
-        intro={`${site.name} is an independent studio run by ${site.founder}, making horror, action and arcade games that are built to be finished rather than farmed.`}
+        title="DarkLab Games"
+        intro={`${site.name} is an independent studio run by its two co-founders, ${founders.map((f) => f.name).join(" and ")} — making horror, action and arcade games that are built to be finished rather than farmed.`}
         meta={[
           { label: "Founded", value: site.founded },
           { label: "Based in", value: site.location },
@@ -48,7 +49,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <p className="reveal display text-[7vw] uppercase leading-[0.96] text-bone sm:text-[2.6rem] lg:text-[3.1rem]">
+            <p className="reveal display text-[7vw] uppercase leading-[1.16] text-bone sm:text-[2.6rem] lg:text-[3.1rem]">
               The lab makes games about attention — who has yours, and who is paying it to you.
             </p>
             <div className="mt-10 max-w-2xl space-y-5 text-[15px] leading-relaxed text-mist sm:text-base">
@@ -82,7 +83,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-7">
                 <span className="hud !text-specimen">Currently</span>
-                <p className="display mt-3 text-3xl uppercase leading-none sm:text-4xl">
+                <p className="display mt-3 text-3xl uppercase leading-[1.05] sm:text-4xl">
                   Building the next one
                 </p>
               </div>
@@ -91,10 +92,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* the people */}
+      <Founders />
+
       {/* the record — this genuinely is a sequence, so it is numbered */}
       <section className="border-y border-slate bg-carbon/30">
         <div className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28">
-          <h2 className="reveal display mb-14 text-[12vw] uppercase leading-none sm:text-5xl lg:text-[4.4rem]">
+          <h2 className="reveal display mb-14 text-[12vw] uppercase leading-[1.05] sm:text-5xl lg:text-[4.4rem]">
             The record so far
           </h2>
           <ol>
@@ -120,14 +124,14 @@ export default function AboutPage() {
 
       {/* how it is made */}
       <section className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28">
-        <h2 className="reveal display mb-14 text-[12vw] uppercase leading-none sm:text-5xl lg:text-[4.4rem]">
+        <h2 className="reveal display mb-14 text-[12vw] uppercase leading-[1.05] sm:text-5xl lg:text-[4.4rem]">
           How a game gets made here
         </h2>
         <div className="grid gap-px border border-slate bg-slate lg:grid-cols-3">
           {HOW.map((h) => (
             <div key={h.label} className="viewfinder reveal relative bg-ink p-8 sm:p-10">
               <span className="hud !text-specimen">{h.label}</span>
-              <h3 className="display mt-5 text-3xl uppercase leading-tight sm:text-[2rem]">{h.title}</h3>
+              <h3 className="display mt-5 text-3xl uppercase leading-[1.12] sm:text-[2rem]">{h.title}</h3>
               <p className="mt-4 text-[15px] leading-relaxed text-mist">{h.body}</p>
             </div>
           ))}
@@ -135,7 +139,7 @@ export default function AboutPage() {
 
         <div className="reveal mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-slate pt-8">
           <p className="max-w-md text-[15px] leading-relaxed text-mist">
-            Want to work together, cover a game, or just tell {site.founder} something broke?
+            Want to work together, cover a game, or just tell us something broke?
           </p>
           <TextLink href="/contact">Get in touch</TextLink>
         </div>

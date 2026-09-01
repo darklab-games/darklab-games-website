@@ -5,11 +5,11 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Get in touch with ${site.name} about press, publishing, collaboration or a bug you found.`,
+  description: `Get in touch with ${site.name} about publishing, collaboration, coverage or a bug you found.`,
 };
 
 const REASONS = [
-  { label: "Press", body: "Reviewing or covering a game? The press kit has art, a fact sheet and boilerplate ready to use." },
+  { label: "Coverage", body: "Reviewing, streaming or writing about a game? Ask and the art, screenshots and studio details come straight back." },
   { label: "Publishing", body: "Open to conversations about funding, porting or getting a title onto a new storefront." },
   { label: "Collaboration", body: "Sound design, music, art, writing — if you want to make something together, say what you do." },
   { label: "Players", body: "Found a bug, got stuck, or just want to argue about an ending? Genuinely welcome." },
@@ -21,7 +21,7 @@ export default function ContactPage() {
       <PageHead
         eyebrow="Transmission"
         title="Contact"
-        intro={`One inbox, read by the person who makes the games. No form routing, no ticket number — ${site.founder} gets it directly.`}
+        intro="One inbox, read by the people who make the games. No form routing, no ticket number — it lands with the founders directly."
       />
 
       <section className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28">

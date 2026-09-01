@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Gallery from "@/components/Gallery";
@@ -65,7 +65,7 @@ export default async function GamePage({ params }: Props) {
             <span className="hud !text-specimen">{game.status}</span>
           </div>
 
-          <h1 className="display mt-6 max-w-5xl text-[16vw] uppercase leading-[0.84] sm:text-[10vw] lg:text-[8rem]">
+          <h1 className="display mt-6 max-w-5xl text-[16vw] uppercase leading-[0.92] sm:text-[10vw] lg:text-[8rem]">
             <span className="wipe"><span>{game.title}</span></span>
           </h1>
 
@@ -97,7 +97,7 @@ export default async function GamePage({ params }: Props) {
       <section className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7 xl:col-span-8">
-            <p className="reveal display max-w-3xl text-[6vw] leading-[1.06] text-bone sm:text-[2.1rem] lg:text-[2.45rem]">
+            <p className="reveal display max-w-3xl text-[6vw] leading-[1.22] text-bone sm:text-[2.1rem] lg:text-[2.45rem]">
               {game.summary}
             </p>
             <div className="mt-10 max-w-2xl space-y-5">
@@ -147,13 +147,13 @@ export default async function GamePage({ params }: Props) {
       {/* ------------------------------------------------ features */}
       <section className="border-y border-slate bg-carbon/30">
         <div className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28">
-          <h2 className="reveal display mb-14 text-[11vw] uppercase leading-none sm:text-5xl lg:text-[4rem]">
+          <h2 className="reveal display mb-14 text-[11vw] uppercase leading-[1.05] sm:text-5xl lg:text-[4rem]">
             What you are getting
           </h2>
           <div className={`grid gap-px border border-slate bg-slate sm:grid-cols-2 ${game.features.length % 3 === 0 ? "lg:grid-cols-3" : ""}`}>
             {game.features.map((f) => (
               <div key={f.title} className="viewfinder reveal relative bg-ink p-7 sm:p-9">
-                <h3 className="display text-2xl uppercase leading-tight sm:text-[1.7rem]">{f.title}</h3>
+                <h3 className="display text-2xl uppercase leading-[1.12] sm:text-[1.7rem]">{f.title}</h3>
                 <p className="mt-4 text-[15px] leading-relaxed text-mist">{f.body}</p>
               </div>
             ))}
@@ -164,7 +164,7 @@ export default async function GamePage({ params }: Props) {
       {/* ------------------------------------------------ screenshots */}
       <section className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28">
         <div className="reveal mb-12 flex flex-wrap items-baseline justify-between gap-4 border-t border-slate pt-6">
-          <h2 className="display text-[11vw] uppercase leading-none sm:text-5xl lg:text-[4rem]">Screens</h2>
+          <h2 className="display text-[11vw] uppercase leading-[1.05] sm:text-5xl lg:text-[4rem]">Screens</h2>
           <span className="hud">{String(game.shots).padStart(2, "0")} stills · click to enlarge</span>
         </div>
         <div className="reveal">
