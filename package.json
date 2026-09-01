@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "package": "STATIC_EXPORT=1 next build && cd out && zip -qr ../darklabgames-site.zip . -x '.DS_Store' '**/.DS_Store' && echo 'Created darklabgames-site.zip \u2014 upload and extract this in public_html'"
   },
   "dependencies": {
     "next": "16.3.3",

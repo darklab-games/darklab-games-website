@@ -2,9 +2,11 @@ import type { MetadataRoute } from "next";
 import { games } from "@/lib/games";
 import { site } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const pages = ["", "/games", "/about", "/press", "/contact"].map((p) => ({
+  const pages = ["", "/games", "/about", "/contact"].map((p) => ({
     url: `${site.url}${p}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
