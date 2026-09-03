@@ -7,6 +7,20 @@ export const site = {
   url: "https://darklabgames.com",
   email: "darklabgaming24@gmail.com",
 
+  /**
+   * Web3Forms access key — the contact form POSTs to their API and they email
+   * the message to the address the key was issued for. Get one in two minutes
+   * at https://web3forms.com (enter the studio inbox, they mail the key back).
+   *
+   * This key is meant to be public: it ships inside the page's JavaScript, the
+   * same way it would in any static-site form. It only lets someone send mail
+   * to the studio inbox, which the form already lets anyone do.
+   *
+   * If the key is ever cleared, the form falls back to opening the visitor's
+   * own mail app and says so, rather than silently dropping what they wrote.
+   */
+  web3formsKey: "6973d069-725e-4327-90bc-bf5451486a7f",
+
   // ---------------------------------------------------------------
   // TODO — fill these in and they update everywhere on the site.
   // ---------------------------------------------------------------
