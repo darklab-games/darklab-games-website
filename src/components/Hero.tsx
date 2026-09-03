@@ -77,8 +77,8 @@ export default function Hero() {
 
           <h1 className="display text-[14vw] uppercase leading-[0.92] sm:text-[11vw] lg:text-[6.6rem] xl:text-[7.6rem]">
             <span className="wipe"><span>We make games</span></span>
-            <span className="wipe"><span>that <em className="not-italic text-specimen">watch</em></span></span>
-            <span className="wipe"><span>you back.</span></span>
+            <span className="wipe"><span>that <em className="not-italic text-specimen">hit</em></span></span>
+            <span className="wipe"><span>different.</span></span>
           </h1>
 
           <div className="wipe mt-8 max-w-lg">

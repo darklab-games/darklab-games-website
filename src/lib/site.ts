@@ -1,7 +1,7 @@
 export const site = {
   name: "DarkLab Games",
   short: "DARKLAB GAMES",
-  tagline: "We make games that watch you back.",
+  tagline: "We make games that hit different.",
   description:
     "DarkLab Games is an independent game studio making horror, action and arcade games. Four titles shipped and counting.",
   url: "https://darklabgames.com",
