@@ -83,8 +83,8 @@ export default function Hero() {
 
           <div className="wipe mt-8 max-w-lg">
             <span className="block text-[15px] leading-relaxed text-mist sm:text-base">
-              Horror, action and arcade games built by a small studio that cares more about the
-              minute you remember than the hours you log. Four titles out now — all playable today.
+              Horror, action, arcade and puzzle games built by a small studio that cares more about the
+              minute you remember than the hours you log. Five titles out now — all playable today.
             </span>
           </div>
 
@@ -107,10 +107,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* reel index — which of the four you are looking at, right now */}
+      {/* reel index — which of the five you are looking at, right now */}
       <div className="absolute inset-x-0 bottom-0 z-10 border-t border-slate/60 bg-ink/60 backdrop-blur-md">
         <div className="mx-auto max-w-[1600px] px-5 py-3 sm:px-8">
-          {/* narrow screens have no room for four labels — name the live one instead */}
+          {/* narrow screens have no room for five labels — name the live one instead */}
           <div className="mb-2.5 flex items-center justify-between gap-3 sm:hidden">
             <span className="hud flex min-w-0 items-center gap-2 !text-bone">
               <span className="rec-dot shrink-0" />

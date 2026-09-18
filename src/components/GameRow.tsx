@@ -34,6 +34,7 @@ export default function GameRow({ game, flip }: { game: Game; flip?: boolean }) 
           <span
             className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
             style={{ background: `radial-gradient(120% 90% at 50% 100%, ${game.accent}22, transparent 62%)` }}
+            suppressHydrationWarning
           />
         </Link>
 

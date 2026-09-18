@@ -35,8 +35,8 @@ export default function Home() {
       <section id="catalogue" className="mx-auto max-w-[1600px] px-5 py-24 sm:px-8 sm:py-32">
         <SectionHead
           eyebrow="The catalogue"
-          title={<>Four games,<br />all playable now</>}
-          intro="Horror that respects your evening, and arcade games that do not respect your reflexes. Every title below is out and free to try."
+          title={<>Five games,<br />all playable now</>}
+          intro="Horror that respects your evening, arcade games that do not respect your reflexes, and puzzles that turn the room upside down. Every title below is out and free to try."
           right={<span className="hud">{games.length} released</span>}
         />
 

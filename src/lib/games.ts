@@ -184,6 +184,49 @@ export const games: Game[] = [
       { label: "Watch the trailer", href: "https://www.youtube.com/watch?v=G4EZ3NurK0s" },
     ],
   },
+  {
+    slug: "gravity-janitor",
+    index: "05",
+    title: "Gravity Janitor",
+    genre: "Puzzle Platformer",
+    hook: "The room turns, not you. Spin it a quarter turn and let gravity take out the trash.",
+    summary:
+      "A small cleaning robot on the night shift, ninety rooms of litter, and a limited number of spins. Rotate the whole room, let everything fall to the new floor, and get every scrap into the dustbin.",
+    story: [
+      "You are a small cleaning robot working the night shift, and every room is full of litter. The job is simple: get all of it into the dustbin. The problem is where it is — stuck on a wall, on the ceiling, or on the far side of a pit of spikes.",
+      "So you turn the room. A quarter spin left or right and the wall you turned toward becomes the new floor. Everything falls to it. You stay upright and keep sweeping.",
+      "Spins are rationed, and the star rating is pure efficiency: match par for three stars, waste turns and you drop. Finishing a room is never the hard part. Finishing it cleanly is.",
+    ],
+    features: [
+      { title: "Rotate the room, not the robot", body: "Every spin rewrites which way is down. Trash, hazards and the path to the bin all move with it." },
+      { title: "Ninety rooms, three themes", body: "Square Box keeps it tight and readable. Big Space opens into scrolling levels with saws and bounce pads. Lights Out leaves you with a headlamp and very few lamps." },
+      { title: "Stars for efficiency", body: "Every room has a par. Match it for three stars — each wasted spin costs you, and running out resets the room." },
+      { title: "Look before you drop", body: "Spikes and saws end you instantly. A restart is one key away, so experimenting is cheap." },
+    ],
+    controls: [
+      { key: "A / D", action: "Move" },
+      { key: "W / Space", action: "Jump" },
+      { key: "Z / X", action: "Spin room left · right" },
+      { key: "S", action: "Pick up trash · pull lever" },
+      { key: "E", action: "Dump bag into dustbin" },
+      { key: "R / Esc", action: "Restart · Pause" },
+    ],
+    facts: [
+      { label: "Genre", value: "Puzzle platformer" },
+      { label: "Mode", value: "Single player" },
+      { label: "Perspective", value: "2D side on" },
+      { label: "Session", value: "90 rooms" },
+    ],
+    platforms: ["Browser"],
+    status: "Released",
+    year: "2026",
+    shots: 5,
+    heroShot: 4,
+    accent: "#4CC2F5",
+    links: [
+      { label: "Play in browser", href: "https://darklabgames.itch.io/gravity-janitor", primary: true },
+    ],
+  },
 ];
 
 export const getGame = (slug: string) => games.find((g) => g.slug === slug);

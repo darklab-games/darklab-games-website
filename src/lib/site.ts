@@ -3,7 +3,7 @@ export const site = {
   short: "DARKLAB GAMES",
   tagline: "We make games that hit different.",
   description:
-    "DarkLab Games is an independent game studio making horror, action and arcade games. Four titles shipped and counting.",
+    "DarkLab Games is an independent game studio making horror, action, arcade and puzzle games. Five titles shipped and counting.",
   url: "https://darklabgames.com",
   email: "darklabgaming24@gmail.com",
 
@@ -59,7 +59,7 @@ export const founders = [
     role: "Co-founder · Engineering & production",
     photo: "/team/sarthak-aggarwal.jpg",
     linkedin: "https://www.linkedin.com/in/sarthakaggarwal0402/",
-    bio: "Sarthak handles engineering and production — turning the one-line idea into something that runs, on the platforms players are actually on. He keeps the build honest: scope cut early, releases out in public, feedback read and acted on. Four titles are out because someone kept saying the word ship.",
+    bio: "Sarthak handles engineering and production — turning the one-line idea into something that runs, on the platforms players are actually on. He keeps the build honest: scope cut early, releases out in public, feedback read and acted on. Five titles are out because someone kept saying the word ship.",
   },
 ] as const;
 

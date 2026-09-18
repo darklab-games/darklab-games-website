@@ -52,6 +52,7 @@ export default async function GamePage({ params }: Props) {
         <div
           className="absolute inset-0 opacity-40"
           style={{ background: `radial-gradient(90% 70% at 12% 100%, ${game.accent}30, transparent 60%)` }}
+          suppressHydrationWarning
         />
         <div className="brackets pointer-events-none absolute inset-x-5 bottom-5 top-24 sm:inset-x-8 sm:bottom-8 sm:top-28">
           <span /><span /><span /><span />

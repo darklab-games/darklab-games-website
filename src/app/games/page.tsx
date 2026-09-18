@@ -7,19 +7,19 @@ import { games } from "@/lib/games";
 
 export const metadata: Metadata = {
   title: "Games",
-  description: "Every game DarkLab Games has released — horror, bullet-hell and arcade action, all playable now.",
+  description: "Every game DarkLab Games has released — horror, bullet-hell, arcade action and puzzle platforming, all playable now.",
 };
 
 export default function GamesPage() {
-  // Two of the four are horror, so count families rather than labels —
-  // otherwise this reads "4" while the rest of the site says three genres.
+  // Two of the titles are horror, so count families rather than labels —
+  // otherwise this reads "5" while the rest of the site says four genres.
   const genres = new Set(games.map((g) => (/horror/i.test(g.genre) ? "Horror" : g.genre)));
   return (
     <>
       <PageHead
         eyebrow="The catalogue"
         title="Games"
-        intro="Four released titles across horror, arcade and action. Nothing here is a demo and nothing here is behind a paywall."
+        intro="Five released titles across horror, arcade, action and puzzle. Nothing here is a demo and nothing here is behind a paywall."
         meta={[
           { label: "Released", value: String(games.length) },
           { label: "Genres", value: String(genres.size) },
@@ -47,6 +47,7 @@ export default function GamesPage() {
                 <span
                   className="absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                   style={{ background: `radial-gradient(120% 90% at 50% 100%, ${g.accent}26, transparent 62%)` }}
+                  suppressHydrationWarning
                 />
                 <span className="display absolute left-6 top-5 text-3xl leading-none text-specimen">{g.index}</span>
               </span>
