@@ -109,7 +109,7 @@ body::after {
 }
 
 /* ------------------------------------------------------------ signature: the viewfinder
-   Three of DarkLab's four games are about watching or being watched.
+   Three of DarkLab's five games are about watching or being watched.
    The site frames its own content the way those games frame the player. */
 .viewfinder { position: relative; }
 .viewfinder::before,

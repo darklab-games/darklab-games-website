@@ -36,7 +36,7 @@ export default function AboutPage() {
       <PageHead
         eyebrow="The studio"
         title="DarkLab Games"
-        intro={`${site.name} is an independent studio run by its two co-founders, ${founders.map((f) => f.name).join(" and ")} — making horror, action and arcade games that are built to be finished rather than farmed.`}
+        intro={`${site.name} is an independent studio run by its two co-founders, ${founders.map((f) => f.name).join(" and ")} — making horror, action, arcade and puzzle games that are built to be finished rather than farmed.`}
         meta={[
           { label: "Founded", value: site.founded },
           { label: "Based in", value: site.location },
@@ -62,10 +62,11 @@ export default function AboutPage() {
               <p className="reveal reveal-d2">
                 Void Strike is the odd one out and the point is the same. Its weapons aim themselves so
                 that your attention has somewhere better to go: the field, the gaps, the moment before
-                the red lines land.
+                the red lines land. Gravity Janitor strips it down further — no enemies, no timer, just a
+                room you can turn and a limited number of turns to do it in.
               </p>
               <p className="reveal reveal-d3">
-                Four games, three genres, one habit — find the single thing a game is actually about,
+                Five games, four genres, one habit — find the single thing a game is actually about,
                 then remove everything else until that thing has room.
               </p>
             </div>
