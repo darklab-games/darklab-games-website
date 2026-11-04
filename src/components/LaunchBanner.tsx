@@ -5,9 +5,11 @@ import { site } from "@/lib/site";
 const { launch } = site;
 
 // Art direction: the 16:9 banner for landscape screens, the 4:5 one for portrait.
-const {
-  props: { srcSet: wide },
-} = getImageProps({ src: `/games/${launch.slug}/banner.webp`, width: 1920, height: 1080, sizes: "100vw", alt: "" });
+// With `images.unoptimized` (the static export for Hostinger) getImageProps
+// returns no srcSet, only src — fall back to it, or the <source> is empty and
+// every screen gets the portrait banner.
+const { props: wideProps } = getImageProps({ src: `/games/${launch.slug}/banner.webp`, width: 1920, height: 1080, sizes: "100vw", alt: "" });
+const wide = wideProps.srcSet ?? wideProps.src;
 const { props: tall } = getImageProps({
   src: `/games/${launch.slug}/banner-portrait.webp`,
   width: 1080,
