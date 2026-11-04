@@ -63,8 +63,7 @@ export default function GameRow({ game, flip }: { game: Game; flip?: boolean }) 
             {game.links[0] && (
               <a
                 href={game.links[0].href}
-                target="_blank"
-                rel="noreferrer"
+                {...(game.links[0].href.startsWith("/") ? {} : { target: "_blank", rel: "noreferrer" })}
                 className="font-hud text-[11px] uppercase tracking-[0.2em] text-ash transition-colors hover:text-specimen"
               >
                 {game.links[0].label}

@@ -3,7 +3,7 @@ export const site = {
   short: "DARKLAB GAMES",
   tagline: "We make games that hit different.",
   description:
-    "DarkLab Games is an independent game studio making horror, action, arcade and puzzle games. Five titles shipped and counting.",
+    "DarkLab Games is an independent game studio making horror, action, arcade, puzzle and multiplayer games. Six titles shipped and counting.",
   url: "https://darklabgames.com",
   email: "darklabgaming24@gmail.com",
 
@@ -20,6 +20,18 @@ export const site = {
    * own mail app and says so, rather than silently dropping what they wrote.
    */
   web3formsKey: "6973d069-725e-4327-90bc-bf5451486a7f",
+
+  /**
+   * The title currently being launched. It takes over the homepage's first
+   * screen and has its own player page, darklabgames.com/diwali-clash, which
+   * runs the build hosted on AWS in a full-screen frame.
+   */
+  launch: {
+    title: "Diwali Clash",
+    slug: "diwali-clash",
+    tagline: "Lights go out. Everyone aims blind. Every rocket launches at once. A firecracker battle for up to 4 players.",
+    playUrl: "https://3-6-65-0.sslip.io/",
+  },
 
   // ---------------------------------------------------------------
   // TODO — fill these in and they update everywhere on the site.
@@ -59,7 +71,7 @@ export const founders = [
     role: "Co-founder · Engineering & production",
     photo: "/team/sarthak-aggarwal.jpg",
     linkedin: "https://www.linkedin.com/in/sarthakaggarwal0402/",
-    bio: "Sarthak handles engineering and production — turning the one-line idea into something that runs, on the platforms players are actually on. He keeps the build honest: scope cut early, releases out in public, feedback read and acted on. Five titles are out because someone kept saying the word ship.",
+    bio: "Sarthak handles engineering and production — turning the one-line idea into something that runs, on the platforms players are actually on. He keeps the build honest: scope cut early, releases out in public, feedback read and acted on. Six titles are out because someone kept saying the word ship.",
   },
 ] as const;
 

@@ -7,7 +7,7 @@ import { games } from "@/lib/games";
 
 export const metadata: Metadata = {
   title: "Games",
-  description: "Every game DarkLab Games has released — horror, bullet-hell, arcade action and puzzle platforming, all playable now.",
+  description: "Every game DarkLab Games has released — horror, bullet-hell, arcade action, puzzle platforming and online multiplayer, all playable now.",
 };
 
 export default function GamesPage() {
@@ -19,7 +19,7 @@ export default function GamesPage() {
       <PageHead
         eyebrow="The catalogue"
         title="Games"
-        intro="Five released titles across horror, arcade, action and puzzle. Nothing here is a demo and nothing here is behind a paywall."
+        intro="Six released titles across horror, arcade, action, puzzle and online multiplayer. Nothing here is a demo and nothing here is behind a paywall."
         meta={[
           { label: "Released", value: String(games.length) },
           { label: "Genres", value: String(genres.size) },

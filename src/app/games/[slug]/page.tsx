@@ -79,8 +79,7 @@ export default async function GamePage({ params }: Props) {
               <a
                 key={l.href}
                 href={l.href}
-                target="_blank"
-                rel="noreferrer"
+                {...(l.href.startsWith("/") ? {} : { target: "_blank", rel: "noreferrer" })}
                 className={
                   l.primary
                     ? "border border-specimen bg-specimen px-7 py-3.5 font-hud text-[11px] uppercase tracking-[0.2em] text-ink transition-colors hover:bg-transparent hover:text-specimen"
