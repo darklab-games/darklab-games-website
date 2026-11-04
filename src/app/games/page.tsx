@@ -3,7 +3,7 @@ import Image from "@/components/Img";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
 import { Arrow, Chip } from "@/components/Bits";
-import { games } from "@/lib/games";
+import { games, keyArt } from "@/lib/games";
 
 export const metadata: Metadata = {
   title: "Games",
@@ -37,7 +37,7 @@ export default function GamesPage() {
             >
               <span className="relative block aspect-[16/9] overflow-hidden">
                 <Image
-                  src={`/games/${g.slug}/key.webp`}
+                  src={keyArt(g)}
                   alt=""
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

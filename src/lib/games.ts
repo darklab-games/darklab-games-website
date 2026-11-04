@@ -25,6 +25,11 @@ export type Game = {
   accent: string;
   /** False for titles that are not in the homepage showreel video. */
   reel?: false;
+  /** Key art file name inside public/games/<slug>/, without extension —
+   *  a .webp and a .jpg of it must exist. Defaults to "key". Use a new name
+   *  when the art changes: images are cached for a year, so overwriting
+   *  key.webp would keep showing returning visitors the old one. */
+  art?: string;
   links: Link[];
 };
 
@@ -67,6 +72,7 @@ export const games: Game[] = [
     heroShot: 1,
     accent: "#FF4D7A",
     reel: false,
+    art: "banner",
     links: [
       { label: "Play now", href: "/diwali-clash", primary: true },
     ],
@@ -274,3 +280,6 @@ export const games: Game[] = [
 ];
 
 export const getGame = (slug: string) => games.find((g) => g.slug === slug);
+
+/** Path to a title's key art: `ext` is "webp" for the page, "jpg" for social previews. */
+export const keyArt = (g: Game, ext: "webp" | "jpg" = "webp") => `/games/${g.slug}/${g.art ?? "key"}.${ext}`;

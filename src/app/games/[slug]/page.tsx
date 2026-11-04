@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Gallery from "@/components/Gallery";
 import { Arrow } from "@/components/Bits";
-import { games, getGame } from "@/lib/games";
+import { games, getGame, keyArt } from "@/lib/games";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${game.title} — DarkLab Games`,
       description: game.summary,
-      images: [{ url: `/games/${game.slug}/key.jpg`, width: 1600, height: 900, alt: game.title }],
+      images: [{ url: keyArt(game, "jpg"), width: 1600, height: 900, alt: game.title }],
     },
   };
 }
@@ -40,7 +40,7 @@ export default async function GamePage({ params }: Props) {
       {/* ------------------------------------------------ hero */}
       <header className="relative flex min-h-[78svh] items-end overflow-hidden border-b border-slate pt-28">
         <Image
-          src={`/games/${game.slug}/${game.heroShot ? `shot-${game.heroShot}` : "key"}.webp`}
+          src={game.heroShot ? `/games/${game.slug}/shot-${game.heroShot}.webp` : keyArt(game)}
           alt=""
           fill
           sizes="100vw"
@@ -176,7 +176,7 @@ export default async function GamePage({ params }: Props) {
       <section className="border-t border-slate">
         <Link href={`/games/${next.slug}`} className="group relative block overflow-hidden">
           <Image
-            src={`/games/${next.slug}/key.webp`}
+            src={keyArt(next)}
             alt=""
             fill
             sizes="100vw"

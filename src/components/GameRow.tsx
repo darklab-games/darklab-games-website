@@ -1,6 +1,6 @@
 import Image from "@/components/Img";
 import Link from "next/link";
-import type { Game } from "@/lib/games";
+import { keyArt, type Game } from "@/lib/games";
 import { Arrow, Chip } from "./Bits";
 
 export default function GameRow({ game, flip }: { game: Game; flip?: boolean }) {
@@ -25,7 +25,7 @@ export default function GameRow({ game, flip }: { game: Game; flip?: boolean }) 
           aria-hidden
         >
           <Image
-            src={`/games/${game.slug}/key.webp`}
+            src={keyArt(game)}
             alt=""
             fill
             sizes="(max-width: 1024px) 100vw, 58vw"
