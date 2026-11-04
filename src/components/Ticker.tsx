@@ -1,6 +1,7 @@
 const ITEMS = [
-  "Five titles shipped",
-  "Horror · Action · Arcade · Puzzle",
+  "Six titles shipped",
+  "New: Diwali Clash",
+  "Horror · Action · Arcade · Puzzle · Multiplayer",
   "Play free on itch.io",
   "Windows · Browser · Android",
   "Built by two people",

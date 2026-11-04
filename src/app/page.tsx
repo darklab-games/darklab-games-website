@@ -1,6 +1,7 @@
 import Image from "@/components/Img";
 import Link from "next/link";
 import Hero from "@/components/Hero";
+import LaunchBanner from "@/components/LaunchBanner";
 import Ticker from "@/components/Ticker";
 import GameRow from "@/components/GameRow";
 import { SectionHead, TextLink } from "@/components/Bits";
@@ -16,7 +17,7 @@ const PRINCIPLES = [
   {
     label: "Access",
     title: "Free to try, no gate",
-    body: "Everything is on itch.io and half of it runs in the browser. If a game cannot earn a stranger's second minute, that is the game's problem to fix.",
+    body: "Everything is free on itch.io or right here, and most of it runs in the browser. If a game cannot earn a stranger's second minute, that is the game's problem to fix.",
   },
   {
     label: "Craft",
@@ -28,6 +29,7 @@ const PRINCIPLES = [
 export default function Home() {
   return (
     <>
+      <LaunchBanner />
       <Hero />
       <Ticker />
 
@@ -35,7 +37,7 @@ export default function Home() {
       <section id="catalogue" className="mx-auto max-w-[1600px] px-5 py-24 sm:px-8 sm:py-32">
         <SectionHead
           eyebrow="The catalogue"
-          title={<>Five games,<br />all playable now</>}
+          title={<>Six games,<br />all playable now</>}
           intro="Horror that respects your evening, arcade games that do not respect your reflexes, and puzzles that turn the room upside down. Every title below is out and free to try."
           right={<span className="hud">{games.length} released</span>}
         />

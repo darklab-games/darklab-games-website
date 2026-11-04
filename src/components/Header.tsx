@@ -7,12 +7,15 @@ import { nav, site } from "@/lib/site";
 import Timecode from "./Timecode";
 
 export default function Header() {
-  const [solid, setSolid] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  // The homepage opens on the bright launch banner, which nothing reads
+  // against, so the bar is solid there from the first frame.
+  const solid = scrolled || pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -67,14 +70,12 @@ export default function Header() {
             <Timecode className="text-[11px] text-ash" />
           </div>
 
-          <a
-            href={site.socials[0].href}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href={`/${site.launch.slug}`}
             className="hidden border border-specimen/40 px-4 py-2 font-hud text-[11px] uppercase tracking-[0.2em] text-specimen transition-colors hover:bg-specimen hover:text-ink sm:block"
           >
             Play now
-          </a>
+          </Link>
 
           <button
             onClick={() => setOpen((v) => !v)}

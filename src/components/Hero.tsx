@@ -5,6 +5,7 @@ import { games } from "@/lib/games";
 import { site } from "@/lib/site";
 
 const SEGMENT = 5; // the reel gives every game exactly five seconds
+const reel = games.filter((g) => g.reel !== false); // titles that are in the video
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -17,7 +18,7 @@ export default function Hero() {
     if (!v) return;
     const onTime = () => {
       const t = v.currentTime;
-      setActive(Math.min(games.length - 1, Math.floor(t / SEGMENT)));
+      setActive(Math.min(reel.length - 1, Math.floor(t / SEGMENT)));
       setProgress((t % SEGMENT) / SEGMENT);
     };
     v.addEventListener("timeupdate", onTime);
@@ -84,7 +85,7 @@ export default function Hero() {
           <div className="wipe mt-8 max-w-lg">
             <span className="block text-[15px] leading-relaxed text-mist sm:text-base">
               Horror, action, arcade and puzzle games built by a small studio that cares more about the
-              minute you remember than the hours you log. Five titles out now — all playable today.
+              minute you remember than the hours you log. Six titles out now — all playable today.
             </span>
           </div>
 
@@ -115,7 +116,7 @@ export default function Hero() {
             <span className="hud flex min-w-0 items-center gap-2 !text-bone">
               <span className="rec-dot shrink-0" />
               <span className="truncate">
-                <span className="text-specimen">{games[active].index}</span> {games[active].title}
+                <span className="text-specimen">{reel[active].index}</span> {reel[active].title}
               </span>
             </span>
             <button onClick={toggleSound} className="hud shrink-0 border border-slate px-2.5 py-1.5" aria-pressed={!muted}>
@@ -129,7 +130,7 @@ export default function Hero() {
             </span>
 
             <ul className="flex flex-1 gap-2 sm:gap-3">
-              {games.map((g, i) => (
+              {reel.map((g, i) => (
                 <li key={g.slug} className="min-w-0 flex-1">
                   <button onClick={() => jump(i)} className="group block w-full text-left" aria-label={`Jump to ${g.title} in the showreel`}>
                     <span className="block h-[2px] w-full overflow-hidden bg-slate">

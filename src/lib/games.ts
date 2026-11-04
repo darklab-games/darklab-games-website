@@ -23,10 +23,54 @@ export type Game = {
   heroShot?: number;
   /** Accent used for this title's panel. Drawn from the game's own art. */
   accent: string;
+  /** False for titles that are not in the homepage showreel video. */
+  reel?: false;
   links: Link[];
 };
 
 export const games: Game[] = [
+  {
+    slug: "diwali-clash",
+    index: "06",
+    title: "Diwali Clash",
+    genre: "Multiplayer Party",
+    hook: "Lights go out. Everyone aims blind. Every rocket launches at once.",
+    summary:
+      "A four-player firecracker battle on an Indian street at Diwali. Three seconds to see everyone, then the lights go out — move, aim your rocket in the dark, and hope nobody guessed where you went.",
+    story: [
+      "Up to four players stand on the road between the shops and the crowd, each holding a bottle with a sky rocket in it. Every round opens with three seconds of light. Look hard: where everyone stands, where they are pointing, who is about to move.",
+      "Then the street goes dark. You see only yourself and the path of your own rocket. Move anywhere, aim anywhere, and play the guessing game against people who are guessing about you.",
+      "At zero the lights come back and every rocket launches at once. Nobody can dodge while they fly. A rocket through you costs a life, you have three, and every two rounds the anaars light up along the edges and the street gets narrower. Last one standing wins.",
+    ],
+    features: [
+      { title: "Three seconds to look", body: "Each round starts with everyone in plain sight. What you remember is all you get once the lights go out." },
+      { title: "Nobody can peek", body: "In the dark the server only sends you your own position. There is nothing to read off the screen — it is pure memory and nerve." },
+      { title: "Every rocket at once", body: "All rockets launch on the same frame and everyone freezes while they fly. You cannot dodge what you could not see coming." },
+      { title: "The street closes in", body: "Anaars burn along the edges every two rounds, and from round ten it is sudden death. Standing still is never safe for long." },
+    ],
+    controls: [
+      { key: "WASD / Arrows", action: "Move" },
+      { key: "Mouse", action: "Aim your rocket" },
+      { key: "Left thumb", action: "Move (mobile)" },
+      { key: "Right thumb", action: "Aim (mobile)" },
+    ],
+    facts: [
+      { label: "Genre", value: "Multiplayer party" },
+      { label: "Mode", value: "Online, 2–4 players" },
+      { label: "Perspective", value: "Top down" },
+      { label: "Session", value: "Quick matches" },
+    ],
+    platforms: ["Browser"],
+    status: "Released",
+    year: "2026",
+    shots: 8,
+    heroShot: 1,
+    accent: "#FF4D7A",
+    reel: false,
+    links: [
+      { label: "Play now", href: "/diwali-clash", primary: true },
+    ],
+  },
   {
     slug: "the-museum",
     index: "01",

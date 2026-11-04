@@ -66,7 +66,7 @@ export default function AboutPage() {
                 room you can turn and a limited number of turns to do it in.
               </p>
               <p className="reveal reveal-d3">
-                Five games, four genres, one habit — find the single thing a game is actually about,
+                Six games, five genres, one habit — find the single thing a game is actually about,
                 then remove everything else until that thing has room.
               </p>
             </div>
